@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ecard-totem/static/css/main.f879be67.css",
+    "main.js": "/ecard-totem/static/js/main.b61fdaee.js",
+    "static/js/787.5cdff4eb.chunk.js": "/ecard-totem/static/js/787.5cdff4eb.chunk.js",
+    "index.html": "/ecard-totem/index.html",
+    "main.f879be67.css.map": "/ecard-totem/static/css/main.f879be67.css.map",
+    "main.b61fdaee.js.map": "/ecard-totem/static/js/main.b61fdaee.js.map",
+    "787.5cdff4eb.chunk.js.map": "/ecard-totem/static/js/787.5cdff4eb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f879be67.css",
+    "static/js/main.b61fdaee.js"
+  ]
+}
