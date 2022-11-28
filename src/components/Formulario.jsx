@@ -20,7 +20,7 @@ const Formulario = () => {
         toggleShow(!show)
 
         //const userData = fetchUsers(data);
-        obtUserData(data);
+        //obtUserData(data);
 
         fetchUsers(data)
 //        setSuccessMsg("Consulta correcta");
@@ -95,10 +95,12 @@ const Formulario = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
 
+            { console.log(response) }
+
 
             {response ? successMsg && <p className="text-success text-center display-4">{successMsg}</p> : ''}
-            {response ? <p className="display-4 text-center">{response[0].name}</p> : ''}
-            {response ? <div className="text-center">
+            {response && response[0] ? <p className="display-4 text-center">{response[0].name}</p> : ''}
+            {response && response[0] ? <div className="text-center">
                 <QRCodeCanvas id="qrCode"
                               value={`https://stackoverflow.com/questions/39523040/concatenating-variables-and-strings-in-react/pepe=${response[0].token}`}
                               size={600} bgColor={"#FFFFFF"} level={"H"}/>
