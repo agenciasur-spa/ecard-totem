@@ -11,7 +11,8 @@ const Formulario  = () => {
     const [successMsg, setSuccessMsg] = useState("");
     const [counter, setCounter] = useState(0);
     //const [response, setResponse] = useState(false);
-    const [response, setResponse] = useState([]);
+    const [response, setResponse] = useState();
+    const [user, setUser] = useState("");
     const {register, formState:{errors}, handleSubmit, reset } = useForm();
     const [show, toggleShow] = useState(true);
 
@@ -21,12 +22,10 @@ const Formulario  = () => {
 
         toggleShow(!show)
 
-        //const userData = fetchUsers(data);
-        obtUserData(data);  
-      
-        fetchUsers(data)
-//        setSuccessMsg("Consulta correcta");
-
+        // const userData = fetchUsers(data);
+        // obtUserData(data);  
+         fetchUsers(data)
+        // setSuccessMsg("Consulta correcta");
 
         const interval =   setInterval(() => {
             setCounter((prevCounter) => prevCounter + 1);
@@ -64,15 +63,14 @@ const Formulario  = () => {
 
                 if (!res.data || res.data.length == 0) {
                   const emptyDataError = new Error('Invalid data');
-                  //setResponse('');
+                  setResponse('');
                   emptyDataError.statusCode = 500;
                   throw emptyDataError;
                   ;
                 }
 
 
-
-			          //setResponse(res.data);
+			          setResponse(res.data);
 
 		} catch (err) {
 			console.log(err);
@@ -104,6 +102,10 @@ const clearOnlyForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
         
         
+          {response ? console.log(response) : console.log(response)}
+
+
+        {/*
 
         {response ?  successMsg && <p className="text-success text-center display-4">{successMsg}</p> : ''}
         {response ? <p className="display-4 text-center">{response[0].name}</p> : ''}
@@ -111,20 +113,20 @@ const clearOnlyForm = () => {
         <QRCodeCanvas id="qrCode" value={`https://stackoverflow.com/questions/39523040/concatenating-variables-and-strings-in-react/pepe=${ response[0].token }`} size={600} bgColor={"#FFFFFF"} level={"H"}/>
         <h6 className="text-muted display-4 ">Tiempo de inactividad: {counter}</h6>
         </div> : ''}
-
+*/}
 
 
 
         <h1 className="d-none">{show ? 'show' : 'hide'}</h1>
    
         { show && <div>
-        <p className="display-3 text-center">Ingrese su RUN </p>
-        <div className="form-outline mb-4 display-4">
+        <p className="h2 text-center">Ingrese su RUN </p>
+        <div className="form-outline mb-2">
                 <input className="form-control form-control-lg"  type="text" name="rut" {...register('rut', {required: true,  validate: { rutFormato, rutValidator }})}/>
-                <small id="emailHelp" className="form-text text-muted">Sin puntos y con guión ejemplo: 9999999-9</small>
-                {errors.rut?.type === "required" && (<p className="errorMsg text-danger">Ingreso de Run es requerido.</p>)}
-                {errors.rut?.type === "rutFormato" && (<p className="errorMsg text-danger">El Formato ingresado no es válido.</p>)}
-                {errors.rut?.type === "rutValidator" && (<p>El Run ingresado no es válido.</p>)}
+                <small id="emailHelp" className="form-text text-muted text-center h5">Sin puntos y con guión ejemplo: 9999999-9</small>
+                {errors.rut?.type === "required" && (<p className="text-center errorMsg text-danger">Ingreso de Run es requerido.</p>)}
+                {errors.rut?.type === "rutFormato" && (<p className="text-center errorMsg text-danger">El Formato ingresado no es válido.</p>)}
+                {errors.rut?.type === "rutValidator" && (<p className="text-center errorMsg text-danger">El Run ingresado no es válido.</p>)}
         </div>  
 
         
@@ -142,7 +144,7 @@ const clearOnlyForm = () => {
 
                     <div className="d-flex align-items-center justify-content-center pb-4">
                       
-                      <h2>Si tiene problemas Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h2>
+                      <p className="h6">Si tiene problemas Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
                     </div>
 
                     
