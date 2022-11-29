@@ -16,7 +16,7 @@ function App() {
   
                   <div className="text-center">
                     <img src="https://vcard-bestado.web.app/assets/icons/icon-152x152.png" alt="logo" className="logo" />
-                    <h3 className="mt-3 mb-5 pb-1 font-weight-300">Solicite su E-card</h3>
+                    <h3 className="mt-3 mb-5 pb-1">Solicite su E-card</h3>
                   </div>
                   <Formulario/>
                   </div>
