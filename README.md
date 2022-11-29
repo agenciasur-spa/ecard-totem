@@ -1,3 +1,8 @@
+
+# ECard totem
+
+Sistema que al ingresar rut (formato sin puntos + guión), si existe en DDBB devuelve token y url, genera código qr para descarga ECard.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
