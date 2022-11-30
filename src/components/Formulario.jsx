@@ -10,7 +10,7 @@ import { QRCodeCanvas } from "qrcode.react";
 const Formulario = () => {
     const [successMsg, setSuccessMsg] = useState("");
     const [counter, setCounter] = useState(60);
-    const [response, setResponse] = useState([]);
+    const [response, setResponse] = useState({});
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
 
@@ -60,12 +60,15 @@ const Formulario = () => {
             setResponse(res.data);
 
         } catch (err) {
-            console.log(err);
+            // console.log(err);
+            if (err.code === "ERR_NETWORK") {
+                setResponse('NoUsuario');
+            }
         }
     };
     const clearForm = (interval) => {
 
-        setResponse([])
+        setResponse({})
         setCounter(0)
         clearInterval(interval);
         setSuccessMsg("");
@@ -73,7 +76,7 @@ const Formulario = () => {
         reset();
     }
     const clearOnlyForm = () => {
-        setResponse([])
+        setResponse({})
         setCounter(0)
         setSuccessMsg("");
         toggleShow(!show)
@@ -132,16 +135,20 @@ const Formulario = () => {
 const DataUsuario = (props) => {
     let component = null;
 
-    if (!props.response.length) {
-        console.log('Inicial', props)
+    //console.log(JSON.stringify(props.response))
+
+
+
+    if (Object.keys(props.response).length === 0) {
+        console.log('Inicial')
         component = ""
     }
     else if (props.response === "NoUsuario") {
-        console.log('sin con usuario', props)
+        console.log('sin con usuario')
         component = <p className="text-danger text-center h3">No se ha encontrado el usuario</p>
     }
     else {
-        console.log('con usuario', props)
+        console.log('con usuario')
         component = <>
             <p className="text-success text-center h3">{props.successMsg}</p>
             <p className="display-4 text-center">{props.response.name}</p>
