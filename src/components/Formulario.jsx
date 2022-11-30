@@ -119,10 +119,6 @@ const Formulario = () => {
             <div className="text-center"><button className="btn btn-outline-muted" type="button" onClick={() => clearOnlyForm()}>Limpiar formulario</button></div>
 
 
-            <div className="d-flex align-items-center justify-content-center pb-4">
-
-                <p className="h6">Si tiene problemas Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
-            </div>
             {/*<button type="button" onClick={() => toggleShow(!show)}>
                       toggle: {show ? 'show' : 'hide'}
                   </button> */   }
