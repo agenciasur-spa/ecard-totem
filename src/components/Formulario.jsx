@@ -37,11 +37,12 @@ const Formulario = () => {
     const fetchUsers = async rut => {
         try {
             const res = await axios.get(
-                `https://my-json-server.typicode.com/maur-ojeda/Mockend/users`,
+                `https://bech.dev.ecard.cl/api/find`,
                 {
                     headers: {
                         //'X-RapidAPI-Key': '4ee9424734msh8c05e0f6fde9c8cp1700f8jsn6b1ddc70a2d7',
                         //'X-RapidAPI-Host': 'andruxnet-random-famous-quotes.p.rapidapi.com'
+                        'Content-Type': 'application/json'
                     },
                     params: {
                         nationalId: rut.rut
@@ -143,9 +144,9 @@ const DataUsuario = (props) => {
         console.log('con usuario', props)
         component = <>
             <p className="text-success text-center h3">{props.successMsg}</p>
-            <p className="display-4 text-center">{props.response[0].name}</p>
+            <p className="display-4 text-center">{props.response.name}</p>
             <div className="text-center">
-                <QRCodeCanvas className="w-50 h-50" id="qrCode" value={`https://stackoverflow.com/questions/39523040/concatenating-variables-and-strings-in-react/pepe=${props.response[0].token}`} size={600} bgColor={"#FFFFFF"} level={"H"} />
+                <QRCodeCanvas className="w-50 h-50" id="qrCode" value={`${props.response.qr}`} size={600} bgColor={"#FFFFFF"} level={"H"} />
                 <h6 className="text-muted">Tiempo de inactividad: {props.counter}</h6>
             </div>
         </>
