@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ecard-totem/static/css/main.42ecb03f.css",
-    "main.js": "/ecard-totem/static/js/main.5760691f.js",
+    "main.js": "/ecard-totem/static/js/main.a4cd87b0.js",
     "static/js/787.5cdff4eb.chunk.js": "/ecard-totem/static/js/787.5cdff4eb.chunk.js",
     "index.html": "/ecard-totem/index.html",
     "main.42ecb03f.css.map": "/ecard-totem/static/css/main.42ecb03f.css.map",
-    "main.5760691f.js.map": "/ecard-totem/static/js/main.5760691f.js.map",
+    "main.a4cd87b0.js.map": "/ecard-totem/static/js/main.a4cd87b0.js.map",
     "787.5cdff4eb.chunk.js.map": "/ecard-totem/static/js/787.5cdff4eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42ecb03f.css",
-    "static/js/main.5760691f.js"
+    "static/js/main.a4cd87b0.js"
   ]
 }
