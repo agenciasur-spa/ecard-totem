@@ -101,7 +101,7 @@ const Formulario = () => {
             <h1 className="d-none">{show ? 'show' : 'hide'}</h1>
 
             {show && <div>
-                <p className="h2 text-center">Ingrese su RUN </p>
+                <p className="h2 text-center">Ingresa tu RUN </p>
                 <div className="form-outline mb-2">
                     <input className="form-control form-control-lg" type="text" name="rut"  {...register('rut', { required: true, validate: { rutFormato, rutValidator } })} />
                     <small id="emailHelp" className="form-text text-muted text-center h5">Sin puntos y con guión ejemplo: 9999999-9</small>
