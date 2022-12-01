@@ -59,7 +59,13 @@ const Formulario = () => {
             setResponse(res.data);
 
         } catch (err) {
-            // console.log(err);
+
+
+            if (err.response) {
+                setResponse(err.response.status);
+
+            }
+
             if (err.code === "ERR_NETWORK") {
                 setResponse('NoUsuario');
             }
@@ -136,15 +142,27 @@ const DataUsuario = (props) => {
 
 
     if (Object.keys(props.response).length === 0) {
-        console.log('Inicial')
+        //console.log(props.response)
         component = ""
+
+        if (props.response === 403) {
+            component = <p className="text-danger text-center h3">No se ha encontrado el usuario</p>
+        }
+
+        if (props.response === 404) {
+            component = <>
+                <h3 className="text-center text-danger text-warning h3">E-card no disponible</h3>
+                <p className="text-muted text-center">debe ser solicitada en Sistema de Requerimientos BancoEstado.</p>
+            </>
+        }
     }
+
     else if (props.response === "NoUsuario") {
-        console.log('sin con usuario')
+        //console.log('sin con usuario')
         component = <p className="text-danger text-center h3">No se ha encontrado el usuario</p>
     }
     else {
-        console.log('con usuario')
+        //console.log('con usuario')
         component = <>
             <p className="text-success text-center h3">{props.successMsg}</p>
             <p className="display-4 text-center">{props.response.name}</p>
