@@ -9,7 +9,7 @@ import { QRCodeCanvas } from "qrcode.react";
 
 const Formulario = () => {
     const [successMsg, setSuccessMsg] = useState("");
-    const [counter, setCounter] = useState(60);
+    const [counter, setCounter] = useState(120);
     const [response, setResponse] = useState({});
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -30,8 +30,7 @@ const Formulario = () => {
         setTimeout(() => {
             //alert('Periodo de inactividad');
             clearForm(interval)
-        }, 60000);
-
+        }, 120000);
         reset();
     };
     const fetchUsers = async rut => {
@@ -69,15 +68,16 @@ const Formulario = () => {
     const clearForm = (interval) => {
 
         setResponse({})
-        setCounter(0)
+        setCounter(120)
         clearInterval(interval);
         setSuccessMsg("");
         toggleShow(show)
         reset();
     }
-    const clearOnlyForm = () => {
+    const clearOnlyForm = (interval) => {
         setResponse({})
-        setCounter(0)
+        clearInterval(interval);
+        setCounter(120)
         setSuccessMsg("");
         toggleShow(!show)
         reset();
